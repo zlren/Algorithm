@@ -23,7 +23,8 @@ public class BinarySearch {
         int l = 0, r = arr.length - 1; // 在[l .. r]的范围里寻找target
 
         while (l <= r) { // 当l和r相等的时候，区间依然是有效的，所以有=号
-            int mid = (l + r) / 2;
+            // int mid = (l + r) / 2; // 求两个数的均值，相加后可能导致溢出
+            int mid = l + (r - l) / 2;
             if (arr[mid] == target) {
                 return mid;
             } else if (arr[mid] < target) {
