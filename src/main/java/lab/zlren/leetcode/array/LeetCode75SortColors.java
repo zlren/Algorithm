@@ -58,7 +58,8 @@ public class LeetCode75SortColors {
 
         int left = 0, right = nums.length - 1, i = 0;
 
-        while (i <= right) { // 注意这里的条件，i不能超过right
+        // 注意这里的条件，i不能超过right
+        while (i <= right) {
             if (nums[i] == 0) {
                 swap(nums, left, i);
                 left++;

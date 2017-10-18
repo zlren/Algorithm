@@ -10,9 +10,11 @@ public class SelectionSort {
 
     /**
      * 选择排序
+     * 复杂度n方，不稳定的算法
      *
      * @param nums
      */
+
     public static void sort(int[] nums) {
 
         if (nums == null || nums.length < 2) {
@@ -32,10 +34,12 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = ArrayHelper.generateRandomArray(10, 10);
-        ArrayHelper.printArray(nums);
+        int[] nums = ArrayHelper.generateRandomArray(1000000, 10);
+        long startTime = System.currentTimeMillis();
         sort(nums);
-        ArrayHelper.printArray(nums);
+        long endTime = System.currentTimeMillis();
+        assert ArrayHelper.isSorted(nums);
+        System.out.println("共用时：" + (float) ((endTime - startTime) / 1000) + "s");
     }
 
 }

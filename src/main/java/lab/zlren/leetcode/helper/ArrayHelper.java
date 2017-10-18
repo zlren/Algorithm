@@ -53,6 +53,48 @@ public class ArrayHelper {
     }
 
     /**
+     * 生成近乎有序的数组
+     *
+     * @param n
+     * @param swapTimes
+     * @return
+     */
+    public static int[] generateNearlyOrderedArray(int n, int swapTimes) {
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = i;
+        }
+
+        Random random = new Random();
+        for (int i = 0; i < swapTimes; i++) {
+            int x = random.nextInt(n);
+            int y = random.nextInt(n);
+            swap(nums, x, y);
+        }
+
+        return nums;
+    }
+
+    public static int[] generateNearlyOrderedArray(int n) {
+        // 交换其中的百分之十
+        int swapTimes = (int) (n * 0.1);
+
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = i;
+        }
+
+        Random random = new Random();
+        for (int i = 0; i < swapTimes; i++) {
+            int x = random.nextInt(n);
+            int y = random.nextInt(n);
+            swap(nums, x, y);
+        }
+
+        return nums;
+    }
+
+    /**
      * 打印arr数组的所有内容
      *
      * @param arr
@@ -79,8 +121,30 @@ public class ArrayHelper {
         assert 0 <= i && i <= nums.length - 1;
         assert 0 <= j && j <= nums.length - 1;
 
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
+        if (i != j) {
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
+        }
+    }
+
+    /**
+     * 判断函数是否有序
+     *
+     * @param nums
+     */
+    public static boolean isSorted(int[] nums) {
+
+        if (nums == null || nums.length < 2) {
+            return true;
+        }
+
+        for (int i = 0; i <= nums.length - 2; i++) {
+            if (nums[i] > nums[i + 1]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

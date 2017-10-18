@@ -3,7 +3,9 @@ package lab.zlren.leetcode.array;
 import java.util.Arrays;
 
 /**
- * Created by zlren on 17/10/11.
+ *
+ * @author zlren
+ * @date 17/10/11
  */
 public class LeetCode283MoveZeros {
 
