@@ -52,6 +52,31 @@ public class InsertionSort {
         }
     }
 
+
+    /**
+     * 带下标版本的插入排序
+     *
+     * @param nums
+     * @param l
+     * @param r
+     */
+    public static void insertionSort2WithIndex(int[] nums, int l, int r) {
+
+        int bak;
+        for (int i = l; i <= r; i++) {
+            bak = nums[i];
+
+            for (int j = i - 1; j >= l; j--) {
+                if (bak < nums[j]) {
+                    nums[j + 1] = nums[j];
+                } else {
+                    nums[j] = bak;
+                    break;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] nums = ArrayHelper.generateNearlyOrderedArray(100000);
         int[] nums2 = new int[nums.length];
