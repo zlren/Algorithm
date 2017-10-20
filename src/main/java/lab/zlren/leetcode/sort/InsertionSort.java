@@ -17,18 +17,18 @@ public class InsertionSort {
      *
      * @param nums
      */
-    public static void insertionSort(int[] nums) {
+public static void insertionSort(int[] nums) {
 
-        for (int i = 1; i < nums.length; i++) {
-            for (int j = i; j > 0; j--) {
-                if (nums[j - 1] > nums[j]) {
-                    ArrayHelper.swap(nums, j - 1, j);
-                } else {
-                    break;
-                }
+    for (int i = 1; i < nums.length; i++) {
+        for (int j = i; j > 0; j--) {
+            if (nums[j - 1] > nums[j]) {
+                ArrayHelper.swap(nums, j - 1, j);
+            } else {
+                break;
             }
         }
     }
+}
 
     /**
      * 插入排序改进，减少交换操作

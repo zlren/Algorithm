@@ -14,24 +14,23 @@ public class SelectionSort {
      *
      * @param nums
      */
+public static void sort(int[] nums) {
 
-    public static void sort(int[] nums) {
-
-        if (nums == null || nums.length < 2) {
-            return;
-        }
-
-        int curMinIndex;
-        for (int i = 0; i <= nums.length - 2; i++) {
-            curMinIndex = i;
-            for (int j = i + 1; j <= nums.length - 1; j++) {
-                if (nums[j] < nums[curMinIndex]) {
-                    curMinIndex = j;
-                }
-            }
-            ArrayHelper.swap(nums, i, curMinIndex);
-        }
+    if (nums == null || nums.length < 2) {
+        return;
     }
+
+    int curMinIndex;
+    for (int i = 0; i <= nums.length - 2; i++) {
+        curMinIndex = i;
+        for (int j = i + 1; j <= nums.length - 1; j++) {
+            if (nums[j] < nums[curMinIndex]) {
+                curMinIndex = j;
+            }
+        }
+        ArrayHelper.swap(nums, i, curMinIndex);
+    }
+}
 
     public static void main(String[] args) {
         int[] nums = ArrayHelper.generateRandomArray(1000000, 10);
