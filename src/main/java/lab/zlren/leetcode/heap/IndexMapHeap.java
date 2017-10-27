@@ -1,26 +1,32 @@
 package lab.zlren.leetcode.heap;
 
+import lab.zlren.leetcode.helper.ArrayHelper;
+
 import java.util.Arrays;
 import java.util.Random;
 
 /**
+ * 最大索引堆
+ *
  * @author zlren
- * @date 17/10/25
+ * @date 17/10/26
  */
-public class MaxHeap {
+public class IndexMapHeap {
 
     private int[] data;
+    private int[] index;
     private int count;
     private int capacity;
 
-    public MaxHeap(int capacity) {
+    public IndexMapHeap(int capacity) {
         // 索引从1开始
         data = new int[capacity + 1];
+        index = new int[capacity + 1];
         count = 0;
         this.capacity = capacity;
     }
 
-    public MaxHeap(int[] nums) {
+    public IndexMapHeap(int[] nums) {
 
         data = new int[nums.length + 1];
         capacity = nums.length;
@@ -49,15 +55,20 @@ public class MaxHeap {
     /**
      * 首先将元素放在最后，然后shift up调整
      *
+     * @param i    传入的i对于用户而言，是从0索引的
      * @param item
      */
-    public void insert(int item) {
+    public void insert(int i, int item) {
 
         assert count + 1 <= capacity;
+        assert i + 1 >= 1 && i + 1 <= capacity;
 
-        data[count + 1] = item;
+        // 从1开始索引
+        i += 1;
+        data[i] = item;
+        index[count + 1] = i;
+
         count++;
-
         shiftUp(count);
     }
 
@@ -69,16 +80,10 @@ public class MaxHeap {
      */
     private void shiftUp(int k) {
 
-        int value = data[k];
-
-        int indexOfN = k, indexOfParent = indexOfN / 2;
-        while (indexOfParent > 0 && data[indexOfParent] < value) {
-            data[indexOfN] = data[indexOfParent];
-            indexOfN = indexOfParent;
-            indexOfParent = indexOfParent / 2;
+        while (k > 1 && data[index[k / 2]] < data[index[k]]) {
+            ArrayHelper.swap(index, k / 2, k);
+            k /= 2;
         }
-
-        data[indexOfN] = value;
     }
 
 
@@ -88,11 +93,66 @@ public class MaxHeap {
      * @return
      */
     public int extractMax() {
-        int ret = data[1];
-        data[1] = data[count];
+
+        assert count > 0;
+
+        int ret = data[index[1]];
+        ArrayHelper.swap(index, 1, count);
         count--;
         shiftDown(1);
+
         return ret;
+    }
+
+
+    /**
+     * 取出最大元素，返回最大元素的索引
+     *
+     * @return
+     */
+    public int extractMaxIndex() {
+
+        assert count > 0;
+
+        int ret = index[1] - 1;
+        ArrayHelper.swap(index, 1, count);
+        count--;
+        shiftDown(1);
+
+        return ret;
+    }
+
+    /**
+     * 取出元素
+     *
+     * @param i
+     * @return
+     */
+    int getItem(int i) {
+        return data[i + 1];
+    }
+
+    /**
+     * 修改i位置的元素为newItem
+     *
+     * @param i
+     * @param newItem
+     */
+    void change(int i, int newItem) {
+        i += 1;
+
+        data[i] = newItem;
+
+        // 找到index[j] == i, j表示data[i]在堆中的位置
+        // 之后shiftUp(j)，再shiftDown(j)就好了
+        // TODO 遍历查找复杂度高，可以再记录一个reverse数组，reverse[i]表示索引i在index中的位置
+        for (int j = 1; j <= count; j++) {
+            if (index[j] == i) {
+                shiftUp(j);
+                shiftDown(j);
+                return;
+            }
+        }
     }
 
 
@@ -103,34 +163,19 @@ public class MaxHeap {
      */
     private void shiftDown(int k) {
 
-        int value = data[k];
-
-        int indexN = k;
-        int indexLeftChild = indexN * 2;
-
-        // 有左孩子就证明有孩子
-        while (indexLeftChild <= count) {
-
-            // 比较左右两个孩子谁大跟谁换
-            int indexMaxChild = indexLeftChild;
-
-            if (indexLeftChild + 1 <= count) {
-                if (data[indexLeftChild + 1] > data[indexLeftChild]) {
-                    indexMaxChild = indexLeftChild + 1;
-                }
+        while (2 * k <= count) {
+            int j = 2 * k;
+            if (j + 1 <= count && data[index[j + 1]] > data[index[j]]) {
+                j += 1;
             }
 
-            if (data[indexMaxChild] < value) {
+            if (data[index[k]] >= data[index[j]]) {
                 break;
             }
 
-            data[indexN] = data[indexMaxChild];
-
-            indexN = indexMaxChild;
-            indexLeftChild = indexN * 2;
+            ArrayHelper.swap(index, k, j);
+            k = j;
         }
-
-        data[indexN] = value;
     }
 
 
@@ -244,5 +289,4 @@ public class MaxHeap {
         maxHeap.extractMax();
         maxHeap.treePrint();
     }
-
 }
