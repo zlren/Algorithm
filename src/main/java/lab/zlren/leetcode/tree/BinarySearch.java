@@ -1,5 +1,7 @@
 package lab.zlren.leetcode.tree;
 
+import java.util.Random;
+
 /**
  * @author zlren
  * @date 17/10/29
@@ -37,6 +39,15 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
+        Random random = new Random();
+
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.println(1 / random.nextInt(2));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
     }
 }
