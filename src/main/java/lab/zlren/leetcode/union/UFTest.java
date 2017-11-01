@@ -9,9 +9,9 @@ import java.util.Random;
 public class UFTest {
     public static void main(String[] args) {
 
-        int n = 100000;
+        int n = 1000000;
 
-        UnionFind2 unionFind = new UnionFind2(n);
+        UnionFind4 unionFind = new UnionFind4(n);
 
         long startTime = System.currentTimeMillis();
 
@@ -31,5 +31,4 @@ public class UFTest {
 
         System.out.println(System.currentTimeMillis() - startTime);
     }
-
 }
