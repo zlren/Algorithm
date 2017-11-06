@@ -20,11 +20,14 @@ public class DenseWeightedGraph<Weight extends Number & Comparable>
         // g初始化为n*n的布尔矩阵, 每一个g[i][j]均为null, 表示没有任和边
         // false为boolean型变量的默认值
         g = new Edge[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 g[i][j] = null;
+            }
+        }
     }
 
+    @Override
     public int V() {
         return n;
     } // 返回节点个数
@@ -34,6 +37,7 @@ public class DenseWeightedGraph<Weight extends Number & Comparable>
     } // 返回边的个数
 
     // 向图中添加一个边
+    @Override
     public void addEdge(Edge e) {
 
         assert e.v() >= 0 && e.v() < n;

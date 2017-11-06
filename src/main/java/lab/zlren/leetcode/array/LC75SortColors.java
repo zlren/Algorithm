@@ -14,7 +14,7 @@ import java.util.Arrays;
  * @author zlren
  * @date 17/10/15
  */
-public class LeetCode75SortColors {
+public class LC75SortColors {
 
     public static void main(String[] args) {
         int[] nums = {0, 1, 2, 0, 0, 2, 1};
@@ -56,20 +56,23 @@ public class LeetCode75SortColors {
      */
     private static void sortColors2(int[] nums) {
 
-        int left = 0, right = nums.length - 1, i = 0;
+        // 循环不变量，初值的赋值要保证这一点
+        // [0, left] == 0
+        // [right, n-1] == 2
+        int left = -1, right = nums.length;
 
         // 注意这里的条件，i不能超过right
-        while (i <= right) {
-            if (nums[i] == 0) {
-                swap(nums, left, i);
+        for (int i = 0; i < right; ) {
+            if (nums[i] == 1) {
+                i++;
+            } else if (nums[i] == 0) {
                 left++;
+                // 换过来的是1，所以i++
+                swap(nums, left, i);
                 i++;
             } else if (nums[i] == 2) {
-                swap(nums, i, right);
                 right--;
-                // 注意这里没有i++，因为有可能换过来的是1，需要下一次将其换到左边
-            } else {
-                i++;
+                swap(nums, i, right);
             }
         }
     }

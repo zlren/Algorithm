@@ -3,11 +3,10 @@ package lab.zlren.leetcode.array;
 import java.util.Arrays;
 
 /**
- *
  * @author zlren
  * @date 17/10/11
  */
-public class LeetCode283MoveZeros {
+public class LC283MoveZeros {
 
     public static void main(String[] args) {
         int[] nums = {0, 1, 0, 2, 13};
