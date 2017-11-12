@@ -1,6 +1,8 @@
 package lab.zlren.leetcode.array;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author zlren
@@ -10,6 +12,8 @@ public class LC16ThreeSumClosest {
 
     public static void main(String[] args) {
 
+        Map<String, String> map = new HashMap<>();
+        map.values();
     }
 
     public int threeSumClosest(int[] nums, int target) {
