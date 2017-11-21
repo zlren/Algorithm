@@ -8,6 +8,16 @@ package lab.zlren.leetcode.linkedlist;
  */
 public class LC92ReverseLinkedListII {
 
+    public static void main(String[] args) {
+
+        LC92ReverseLinkedListII lc92ReverseLinkedListII = new LC92ReverseLinkedListII();
+
+        int[] nums = {1, 2, 3, 4, 5};
+        ListNode origin = LinkedListUtil.createLinkedList(nums);
+        LinkedListUtil.printLinkedList(origin);
+        LinkedListUtil.printLinkedList(lc92ReverseLinkedListII.reverseBetween(origin, 2, 4));
+    }
+
 
     /**
      * 1 ≤ m ≤ n ≤ length of list.
@@ -19,24 +29,38 @@ public class LC92ReverseLinkedListII {
      */
     public ListNode reverseBetween(ListNode head, int m, int n) {
 
-        // if (head == null || head.next == null) {
-        //     return head;
-        // }
-        //
-        // ListNode pre = null;
-        // ListNode cur = head;
-        //
-        // ListNode p, q;
-        //
-        // // cur指向第m个节点
-        // for (int i = 1; i < m; i++) {
-        //     pre = cur;
-        //     cur = cur.next;
-        // }
-        //
-        // p = pre;
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        if (m == n) {
+            return head;
+        }
+
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode preM = dummy;
+        for (int i = 1; i <= m - 1; i++) {
+            preM = preM.next;
+        }
 
 
+        // 接下来使用头插法进行中间部分的翻转
+        ListNode mNode = preM.next;
+        // mNode的下一个进行翻转
+        ListNode cur = mNode.next;
+        ListNode t = cur.next;
+        for (int i = 1; i <= n - m; i++) {
+            t = cur.next;
+            cur.next = preM.next;
+            preM.next = cur;
+            cur = t;
+        }
 
+        // t指向n后面一个节点
+        mNode.next = t;
+
+        return dummy.next;
     }
 }
