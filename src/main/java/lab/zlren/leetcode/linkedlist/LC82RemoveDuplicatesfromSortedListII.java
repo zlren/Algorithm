@@ -4,7 +4,7 @@ package lab.zlren.leetcode.linkedlist;
  * @author zlren
  * @date 2017-11-21
  */
-public class LC8282RemoveDuplicatesfromSortedListII {
+public class LC82RemoveDuplicatesfromSortedListII {
 
     public static void main(String[] args) {
 
