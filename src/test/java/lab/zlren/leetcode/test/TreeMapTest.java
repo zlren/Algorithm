@@ -31,5 +31,8 @@ public class TreeMapTest {
         for (Map.Entry<String, String> mapping : list) {
             System.out.println(mapping.getKey() + ":" + mapping.getValue());
         }
+
+        TreeMapTest treeMapTest = new TreeMapTest();
+        Class<? extends TreeMapTest> aClass = treeMapTest.getClass();
     }
 }
