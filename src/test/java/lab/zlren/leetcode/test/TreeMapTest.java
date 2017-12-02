@@ -34,5 +34,6 @@ public class TreeMapTest {
 
         TreeMapTest treeMapTest = new TreeMapTest();
         Class<? extends TreeMapTest> aClass = treeMapTest.getClass();
+
     }
 }
