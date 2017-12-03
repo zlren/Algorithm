@@ -19,7 +19,7 @@ public class LC110BalancedBinaryTree {
 
         int diff = depth(root.left) - depth(root.right);
 
-        if (diff > 1 || diff < -1) {
+        if (Math.abs(diff) > 1) {
             return false;
         }
 
