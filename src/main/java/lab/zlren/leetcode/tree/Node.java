@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class Node {
+
     private int key;
     private int value;
     private Node left;
