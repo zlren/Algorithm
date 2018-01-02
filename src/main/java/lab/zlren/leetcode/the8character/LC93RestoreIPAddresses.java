@@ -11,6 +11,10 @@ import java.util.List;
  */
 public class LC93RestoreIPAddresses {
 
+    public static void main(String[] args) {
+        System.out.println(new LC93RestoreIPAddresses().restoreIpAddresses("25525511135").size());
+    }
+
     public List<String> restoreIpAddresses(String s) {
 
         List<String> ret = new ArrayList<>();

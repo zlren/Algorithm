@@ -86,6 +86,7 @@ public class MergeSort {
             numsNum[k++] = nums[j++];
         }
 
+        // 先将归并的结果保存到另一个数组，然后再覆盖回来
         System.arraycopy(numsNum, 0, nums, l, r - l + 1);
     }
 
