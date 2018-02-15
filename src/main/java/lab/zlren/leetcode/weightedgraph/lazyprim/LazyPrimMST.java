@@ -1,6 +1,5 @@
 package lab.zlren.leetcode.weightedgraph.lazyprim;
 
-import sun.jvm.hotspot.asm.Arithmetic;
 
 import java.util.Vector;
 

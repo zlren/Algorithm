@@ -94,9 +94,9 @@ public class SparseGraph implements Graph {
         assert w >= 0 && w < vertex;
 
         for (int i = 0; i < edges[v].size(); i++) {
-            if (edges[v].get(i) == w) {
-                return true;
-            }
+            // if (edges[v].get(i) == w) {
+            //     return true;
+            // }
         }
 
         return false;
