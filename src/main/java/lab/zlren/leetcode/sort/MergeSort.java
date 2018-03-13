@@ -45,6 +45,7 @@ public class MergeSort {
 
         // 排好
         // 前后两个有序子序列如果直接连起来就是有序的就省的排序了
+
         // 这种情况需要排序
         if (nums[mid] > nums[mid + 1]) {
             merge(nums, l, mid, r);

@@ -16,15 +16,47 @@ public class Main {
         // new Main().nextPermutation(nums);
         // System.out.println(Arrays.toString(nums));
 
+
+        swap(1, 2);
+
+    }
+
+    private int add(int a, int b) {
+        return a + b;
+    }
+
+    private String add(String a, String b) {
+        return a + b;
     }
 
     private static void swap(int a, int b) {
-        a = a ^ b;
-        b = a ^ b;
-        a = a ^ b;
+        // a = a ^ b;
+        // b = a ^ b;
+        // a = a ^ b;
+        // System.out.println(a + " " + b);
+
+        a = a + b;
+        b = a - b;
+        a = a - b;
         System.out.println(a + " " + b);
     }
 
+    int random_0_1() {
+
+        while (true) {
+            int i = RANDOM();
+            int j = RANDOM();
+            if (i == 0 && j == 1) {
+                return 0;
+            } else if (i == 1 && j == 0) {
+                return 1;
+            }
+        }
+    }
+
+    private int RANDOM() {
+        return 0;
+    }
 
 
 }

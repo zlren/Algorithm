@@ -33,14 +33,14 @@ public class QuickSort {
      */
     private static void quickSort(int[] nums, int l, int r) {
 
-        // if (l >= r) {
-        //     return;
-        // }
-
-        if (r - l <= 15) {
-            InsertionSort.insertionSort2WithIndex(nums, l, r);
+        if (l >= r) {
             return;
         }
+
+        // if (r - l <= 15) {
+        //     InsertionSort.insertionSort2WithIndex(nums, l, r);
+        //     return;
+        // }
 
         // 分区
         int p = partition(nums, l, r);
@@ -73,13 +73,9 @@ public class QuickSort {
         // j初始化为l，和标准值为同一个index，都是最左边
         int j = l;
         for (int i = l + 1; i <= r; i++) {
-            // if (nums[i] > v) {
-            //     // 什么都不用做
-            // } else
             if (nums[i] < v) {
                 // 交换的是j+1和当前考察的元素，交换完j++
-                ArrayHelper.swap(nums, j + 1, i);
-                j++;
+                ArrayHelper.swap(nums, ++j, i);
             }
         }
 
@@ -88,13 +84,12 @@ public class QuickSort {
         return j;
     }
 
-
     public static void main(String[] args) {
 
         long startTime = System.currentTimeMillis();
 
-        for (int i = 0; i < 10000; i++) {
-            int[] nums = ArrayHelper.generateRandomArray(1000, 10);
+        for (int i = 0; i < 1000; i++) {
+            int[] nums = ArrayHelper.generateRandomArray(30, 10);
             sort(nums);
             if (!ArrayHelper.isSorted(nums)) {
                 System.out.println("有问题");
@@ -102,5 +97,13 @@ public class QuickSort {
         }
 
         System.out.println(System.currentTimeMillis() - startTime);
+
+        // int[] nums = new int[]{4, 5, 1, 7, 2, 6};
+        //
+        // sort(nums);
+        // System.out.println(Arrays.toString(nums));
+        // if (!ArrayHelper.isSorted(nums)) {
+        //     System.out.println("有问题");
+        // }
     }
 }
