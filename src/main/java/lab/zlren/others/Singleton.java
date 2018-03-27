@@ -6,19 +6,15 @@ package lab.zlren.others;
  */
 public class Singleton {
 
-    private volatile static Singleton instance;
-
-    private Singleton() {
+    private static class Instance {
+        private static Singleton instance = new Singleton();
     }
 
-    public static Singleton getSingleton() {
-        if (instance == null) {
-            synchronized (Singleton.class) {
-                if (instance == null) {
-                    instance = new Singleton();
-                }
-            }
-        }
-        return instance;
+    private Singleton() {
+
+    }
+
+    public static Singleton getInstance() {
+        return Instance.instance;
     }
 }

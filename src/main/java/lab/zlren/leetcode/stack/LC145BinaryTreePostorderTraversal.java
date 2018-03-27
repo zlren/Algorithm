@@ -17,7 +17,7 @@ public class LC145BinaryTreePostorderTraversal {
         String s;
         TreeNode node;
 
-        public Command(String s, TreeNode node) {
+        Command(String s, TreeNode node) {
             this.s = s;
             this.node = node;
         }
@@ -34,6 +34,7 @@ public class LC145BinaryTreePostorderTraversal {
         stack.push(new Command("go", root));
 
         while (!stack.isEmpty()) {
+
             Command pop = stack.pop();
 
             if ("print".equals(pop.s)) {

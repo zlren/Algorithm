@@ -36,14 +36,13 @@ public class LC144BinaryTreePreorderTraversal {
         String s;
         TreeNode node;
 
-        public Command(String s, TreeNode node) {
+        Command(String s, TreeNode node) {
             this.s = s;
             this.node = node;
         }
     }
 
-
-    public List<Integer> preorderTraversal(TreeNode root) {
+    private List<Integer> preorderTraversal(TreeNode root) {
 
         List<Integer> ret = new LinkedList<>();
         if (root == null) {
@@ -54,6 +53,7 @@ public class LC144BinaryTreePreorderTraversal {
         stack.push(new Command("go", root));
 
         while (!stack.isEmpty()) {
+
             Command pop = stack.pop();
 
             if ("print".equals(pop.s)) {

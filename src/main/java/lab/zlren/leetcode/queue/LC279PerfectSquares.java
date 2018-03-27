@@ -9,8 +9,8 @@ import java.util.Arrays;
 public class LC279PerfectSquares {
 
     /**
-     * 如果一个数 x 可以表示为一个任意数 a 加上一个平方数 bｘb，也就是 x = a + bｘb，
-     * 那么能组成这个数 x 最少的平方数个数，就是能组成 a 最少的平方数个数加上 1（因为 b*b 已经是平方数了）。
+     * 如果一个数x可以表示为一个任意数a加上一个平方数bｘb，也就是x = a + bｘb，
+     * 那么能组成这个数x最少的平方数个数，就是能组成a最少的平方数个数加上1（因为b*b已经是平方数了）
      *
      * @param n
      * @return

@@ -15,7 +15,7 @@ public class LC150EvaluateReversePolishNotation {
         System.out.println(evalRPN(tokens));
     }
 
-    public static int evalRPN(String[] tokens) {
+    private static int evalRPN(String[] tokens) {
 
         Stack<String> stack = new Stack<>();
 
