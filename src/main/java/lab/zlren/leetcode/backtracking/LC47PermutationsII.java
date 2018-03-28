@@ -1,4 +1,4 @@
-package lab.zlren.leetcode.the8character;
+package lab.zlren.leetcode.backtracking;
 
 /**
  * 全排列，包含可重复的元素

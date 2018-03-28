@@ -1,4 +1,4 @@
-package lab.zlren.leetcode.the8character;
+package lab.zlren.leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
