@@ -8,7 +8,7 @@ import lab.zlren.leetcode.stack.TreeNode;
  * @author zlren
  * @date 2017-12-03
  */
-public class LC235LowestCommonAncestorofaBinarySearchTree {
+public class LC235LCAofaBinarySearchTree {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 

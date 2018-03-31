@@ -11,8 +11,8 @@ public class Node {
 
     private int key;
     private int value;
-    private Node left;
-    private Node right;
+    Node left;
+    Node right;
 
     public Node(int key, int value) {
         this.key = key;
