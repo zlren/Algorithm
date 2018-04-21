@@ -1,4 +1,4 @@
-package lab.zlren.visualization;
+package lab.zlren.visualization.template;
 
 import javax.swing.*;
 import java.awt.*;

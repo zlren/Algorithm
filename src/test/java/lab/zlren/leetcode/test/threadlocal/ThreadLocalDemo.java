@@ -8,7 +8,9 @@ import java.util.Random;
  */
 public class ThreadLocalDemo implements Runnable {
 
-    // 创建线程局部变量 studentLocal，在后面你会发现用来保存 Student 对象
+    /**
+     * 创建线程局部变量 studentLocal，在后面你会发现用来保存 Student 对象
+     */
     private final static ThreadLocal studentLocal = new ThreadLocal();
 
     public static void main(String[] agrs) {
@@ -27,7 +29,7 @@ public class ThreadLocalDemo implements Runnable {
     /**
      * 示例业务方法，用来测试
      */
-    public void accessStudent() {
+    private void accessStudent() {
         // 获取当前线程的名字
         String currentThreadName = Thread.currentThread().getName();
         System.out.println(currentThreadName + " is running!");
@@ -47,14 +49,14 @@ public class ThreadLocalDemo implements Runnable {
         System.out.println("thread " + currentThreadName + " second read age is: " + student.getAge());
     }
 
-    protected Student getStudent() {
+    private Student getStudent() {
         // 获取本地线程变量并强制转换为 Student 类型
         Student student = (Student) studentLocal.get();
         // 线程首次执行此方法的时候，studentLocal.get() 肯定为 null
         if (student == null) {
             // 创建一个 Student 对象，并保存到本地线程变量 studentLocal 中
             student = new Student();
-            studentLocal.set(student);
+            // studentLocal.set(student);
         }
         return student;
     }

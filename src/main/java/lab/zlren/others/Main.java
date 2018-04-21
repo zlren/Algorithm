@@ -12,6 +12,9 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
+
+        String[] strings = "0".split("\\.");
+
         List<Integer> list = new Main().solution(new int[]{1, 2, 3});
         Collections.sort(list);
         System.out.println(list);

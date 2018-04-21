@@ -38,10 +38,6 @@ public class Circle {
         this.vy = vy;
     }
 
-    public int getR() {
-        return r;
-    }
-
     public void move(int minx, int miny, int maxx, int maxy) {
         x += vx;
         y += vy;
